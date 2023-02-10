@@ -15,7 +15,9 @@ const BONUS_POINTS_LIMIT = 63;
 const BONUS_POINTS = 50;
 
 
-export default Gameboard = () => {
+export default Gameboard = ( {route} ) => {
+
+    const [playerName, setPlayerName] = useState('');
     const [nbrOfThrowsLeft, setNbrOfThrowsLeft] = useState(NBR_OF_THROWS);
     const [nbrOfWins, setNbrOfWins] = useState(0);
     const [sum, setSum] = useState(0);
@@ -70,6 +72,10 @@ export default Gameboard = () => {
 
 useEffect(() => {
     checkWinner();
+    if ( playerName ===  '' && route.params?.player) {
+        setPlayerName(route.params.player);
+    }
+
     if ( nbrOfThrowsLeft === NBR_OF_THROWS) {
         setStatus('Game has not started');
     }
@@ -96,7 +102,9 @@ for (let i = 0; i < NBR_OF_DICES; i++) {
     );
 }
 return (
+    
     <View style={styles.gameboard}>
+        <Header></Header>
         <Text style={styles.flex}>{row}</Text>
         <Text style={styles.gameinfo}>Throws left: {nbrOfThrowsLeft}</Text>
         <Text style={styles.gameinfo}>{status}</Text>
@@ -107,6 +115,9 @@ return (
             </Text>
         </Pressable>
         <Text styles={styles.gameinfo}>Total: {sum}</Text>
+        <Text>You are {sum} away from bonus</Text>
+        <Text styles={styles.author}>Player: {playerName}</Text>
+        <Footer></Footer>
     </View>
 )
 }

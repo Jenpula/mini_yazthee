@@ -21,6 +21,7 @@ export default Home = ( {navigation} ) => {
 
     return (
         <View styles={styles.container}>
+            <Header></Header>
             <Text>Put your name here:</Text>
             { !hasPlayerName ? 
             <>
@@ -38,6 +39,7 @@ export default Home = ( {navigation} ) => {
             </Pressable>
             </>
             }
+            <Footer></Footer>
          </View>
 
     
