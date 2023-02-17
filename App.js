@@ -11,11 +11,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
 
-
-
-
-
-
 export default function App() {
 
 
@@ -24,7 +19,7 @@ export default function App() {
 
 
   return (
-    <NavigationContainer>
+    <NavigationContainer styles={styles.container}>
       <Tab.Navigator>
         <Tab.Screen name='Home' component={Home} options={{tabBarStyle:{display:'none'}}}/>
         <Tab.Screen name='Gameboard' component={Gameboard}/> 

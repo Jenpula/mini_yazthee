@@ -22,12 +22,12 @@ export default Home = ( {navigation} ) => {
     return (
         <View styles={styles.container}>
             <Header></Header>
-            <Text>Put your name here:</Text>
+            <Text>Enter your name:</Text>
             { !hasPlayerName ? 
             <>
             <TextInput onChangeText={setPlayerName} autoFocus={true}></TextInput>
-            <Pressable onPress={() => handlePlayerName(playerName)}>
-                <Text>Ok</Text>
+            <Pressable styles={styles.button} onPress={() => handlePlayerName(playerName)}>
+                <Text styles={styles.buttonText}>Ok</Text>
             </Pressable>
             </>
             :
